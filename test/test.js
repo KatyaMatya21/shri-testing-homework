@@ -1,11 +1,16 @@
 const { expect } = require('chai');
+const { buildFolderUrl, buildFileUrl, buildBreadcrumbs } = require('../utils/navigation');
 
-it('можно добавлять элементы', function() {
-  // подготовка
+describe('Что тестим', function() {
 
-  // действие
+  it('Что хотим получить', function() {
+    // подготовка
 
-  // проверка
+    // действие
 
-  expect(true).to.be.true;
+    // проверка
+
+    expect(true).to.be.true;
+  });
+
 });

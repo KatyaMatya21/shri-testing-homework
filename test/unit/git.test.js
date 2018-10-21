@@ -1,9 +1,10 @@
 const chai = require('chai');
 const chaiAsPromised = require("chai-as-promised");
-const gitModule = require('../../utils/git');
-
 chai.use(chaiAsPromised);
 const expect = chai.expect;
+
+const gitModule = require('../../utils/git');
+
 
 describe('git.js', function() {
 
@@ -33,6 +34,7 @@ describe('git.js', function() {
     });
   });
 
+  // gitHistory
   describe('gitHistory', function () {
     const fakeResult = 'fcce6f67d5f4567e7b211377b172c1e14f2e1c0a        katyamatya21    2018-10-21 00:08:48 +0300       Добавляет тесты для навигации\n' +
       '0ab316fe09d6639e8cde89ab5689522f7cb26b35        katyamatya21    2018-10-17 15:57:29 +0300       Добавляем обёртку\n' +
@@ -51,6 +53,7 @@ describe('git.js', function() {
     });
   });
 
+  // gitFileTree
   describe('gitFileTree', function () {
     const fakeResult = '100644 blob b512c09d476623ff4bf8d0d63c29b784925dbdf8\t.gitignore\n' +
       '110563 tree hgv1k3hjd4as76623ff4bf8d0d63c29b784asdbdf8\tapp.js\n' ;
@@ -67,6 +70,7 @@ describe('git.js', function() {
     });
   });
 
+  // gitFileContent
   describe('gitFileContent', () => {
     it('gitFileContent', () => {
 

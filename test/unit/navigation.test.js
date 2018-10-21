@@ -1,5 +1,5 @@
-const {expect} = require('chai');
-const {buildFolderUrl, buildFileUrl, buildBreadcrumbs} = require('../../utils/navigation');
+const { expect } = require('chai');
+const { buildFolderUrl, buildFileUrl, buildBreadcrumbs, buildObjectUrl } = require('../../utils/navigation');
 
 
 describe('navigation.js', function() {
@@ -76,6 +76,13 @@ describe('navigation.js', function() {
         expect(result).to.have.lengthOf( 2 + normalizedPath.length );
         expect(result.slice(-1)).to.not.have.property('href');
       });
+    });
+  });
+
+  // buildObjectUrl
+  describe('buildObjectUrl: ', function () {
+    it('Генерация крошки для главной страницы', function () {
+
     });
   });
 

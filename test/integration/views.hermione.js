@@ -12,6 +12,30 @@ describe('Правильное отображение', function() {
       });
   });
 
+
+  it('файловой системы', function() {
+    return this.browser
+      .url('/files/84408b854c88dad7b3f766264c113d030196ef56/')
+      .isExisting('.files')
+      .then((exist) => {
+        expect(exist).to.be.true;
+      });
+  });
+
+  it('содержимого файла', function() {
+    return this.browser
+      .url('/content/52196a53e250d7c5acc43aaf4559e2e74b37eb70/.gitignore')
+      .isExisting('.file-content')
+      .then((exist) => {
+        expect(exist).to.be.true;
+      });
+  });
+
+});
+
+
+describe('Правильное отображение', function() {
+
   it('одного коммита', function() {
     return this.browser
       .url('/')
@@ -48,26 +72,8 @@ describe('Правильное отображение', function() {
       });
   });
 
-
-  it('файловой системы', function() {
-    return this.browser
-      .url('/files/84408b854c88dad7b3f766264c113d030196ef56/')
-      .isExisting('.files')
-      .then((exist) => {
-        expect(exist).to.be.true;
-      });
-  });
-
-  it('содержимого файла', function() {
-    return this.browser
-      .url('/content/52196a53e250d7c5acc43aaf4559e2e74b37eb70/.gitignore')
-      .isExisting('.file-content')
-      .then((exist) => {
-        expect(exist).to.be.true;
-      });
-  });
-
 });
+
 
 describe('Правильное отображение хлебных крошек', function() {
 

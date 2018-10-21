@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/unit/*.js --reporter nyan",
+    "test": "mocha test/unit/*.js --reporter nyan && ./node_modules/.bin/hermione test/integration/*.hermione.js",
     "start": "node ./bin/www",
     "devstart": "ndb ./bin/www"
   },
@@ -21,9 +21,8 @@
     "hermione": "^0.90.1",
     "html-reporter": "^2.22.0",
     "mocha": "^5.2.0",
-    "mockery": "^2.1.0",
     "ndb": "^1.0.26",
     "selenium-standalone": "^6.15.3",
-    "sinon": "^7.0.0"
+    "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }

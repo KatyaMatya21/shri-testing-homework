@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { buildFolderUrl, buildFileUrl, buildBreadcrumbs, buildObjectUrl } = require('../../utils/navigation');
-
+const sinon = require('sinon');
 
 describe('navigation.js', function() {
 
@@ -77,13 +77,32 @@ describe('navigation.js', function() {
         expect(result.slice(-1)).to.not.have.property('href');
       });
     });
+
   });
 
-  // buildObjectUrl
-  describe('buildObjectUrl: ', function () {
-    it('Генерация крошки для главной страницы', function () {
+  describe('buildObjectUrl: генерирует адрес объекта по типу', function () {
+    const parentHash = '1234567890helpme';
+    const path = 'file';
 
+    it('генерация адреса директории', function () {
+      const folderUrl = sinon.fake();
+      const type = 'tree';
+      buildObjectUrl(parentHash, { path, type }, folderUrl);
+      expect(folderUrl.calledWith(parentHash, path)).to.eql(true);
     });
+
+    it('генерация адреса файла', function () {
+      const fileUrl = sinon.fake();
+      const type = 'blob';
+      buildObjectUrl(parentHash, { path, type }, null, fileUrl);
+      expect(fileUrl.calledWith(parentHash, path)).to.eql(true);
+    });
+
+    it('генерация адреса по умолчанию', function () {
+      const type = 'abc';
+      expect(buildObjectUrl(parentHash, {path, type})).to.eql('#');
+    });
+
   });
 
 });
